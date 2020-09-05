@@ -1,0 +1,7 @@
+{
+  "name": "AulaFibHibrido",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
