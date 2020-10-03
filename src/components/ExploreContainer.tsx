@@ -1,7 +1,10 @@
 import React from 'react';
 import './ExploreContainer.css';
+import { IonButton, IonInput } from '@ionic/react';
 
 interface ContainerProps { }
+
+let text = '';
 
 const ExploreContainer: React.FC<ContainerProps> = () => {
   return (

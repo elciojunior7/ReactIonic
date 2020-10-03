@@ -1,23 +1,29 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
+import NameOrchestrator from '../components/NameOrchestrator';
+import { chevronBack } from 'ionicons/icons';
+import { useHistory } from 'react-router';
 
 const Home: React.FC = () => {
+
+  const history = useHistory();
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonButtons slot="start">
+            {/*<IonButton onClick={() => history.goBack()} >
+              <IonIcon icon={chevronBack} />
+            </IonButton>*/}
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>Usuário</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
+        <NameOrchestrator />
       </IonContent>
     </IonPage>
   );

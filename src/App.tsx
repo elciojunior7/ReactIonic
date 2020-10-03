@@ -22,15 +22,29 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import StartPage from './pages/StartPage';
+import { NamesContextProvider } from './context/NamesContext';
+import ListPage from './pages/ListPage';
+import AddPage from './pages/AddPage';
+import EditPage from './pages/EditPage';
+import NameDialogs from './components/NameDialogs';
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/home" component={Home} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
-      </IonRouterOutlet>
-    </IonReactRouter>
+    <NamesContextProvider>
+      <IonReactRouter>
+        <Route path="/" >
+          <NameDialogs />
+        </Route>
+        <IonRouterOutlet>
+          <Route path="/home" component={Home} exact={true} />
+          <Route exact path="/" component={StartPage} />
+          <Route exact path="/names" component={ListPage} />
+          <Route exact path="/names/add" component={AddPage} />
+          <Route exact path="/names/:userId/edit" component={EditPage} />
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </NamesContextProvider>
   </IonApp>
 );
 
